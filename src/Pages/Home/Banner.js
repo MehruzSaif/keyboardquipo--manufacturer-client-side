@@ -1,6 +1,6 @@
 import React from 'react';
-import keyboard from '../../assests/keyboard.png';
-import bg1 from '../../assests/bg1.png';
+import keyboard from '../../assets/keyboard.png';
+import bg1 from '../../assets/bg1.png';
 import PrimaryButton from '../Shared/PrimaryButton';
 import './Banner.css';
 
