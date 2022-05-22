@@ -9,7 +9,7 @@ module.exports = {
         keyboardTheme: {
           primary: "#8C80EA",
           secondary: "#ED7D7E",
-          accent: "#DF51AD",
+          accent: "#FEBD71",
           neutral: "#FEBD71",
           mine: "#F48554",
           "base-100": "#ffffff",
