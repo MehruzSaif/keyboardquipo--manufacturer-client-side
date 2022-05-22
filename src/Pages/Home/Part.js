@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Part = ({part}) => {
 
-    const {_id, name, img} = part;
+    const {_id, name, img, price, quantity, orderQuantity, description} = part;
 
     const navigate = useNavigate();
     const navigateToSPurchase = id => {
@@ -17,7 +17,10 @@ const Part = ({part}) => {
             </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{name}</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <p>{description}</p>
+                <p><b>Quantity: {quantity}</b></p>
+                <p><b>Minimum Order: {orderQuantity}</b></p>
+                <p><b>Price: {price}</b></p>
                 <div className="card-actions">
                     <button onClick={() => navigateToSPurchase(_id)} className="btn btn-primary text-white">Order Now</button>
                 </div>
