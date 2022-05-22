@@ -1,0 +1,29 @@
+[
+    {
+        "_id": 1,
+        "name": "Mechanical Switches",
+        "description": "Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the",
+        "quantity": 12000,
+        "minimumOrder": 1000,
+        "price": 20,
+        "img": ""
+    },
+    {
+        "_id": 2,
+        "name": "PBT Keycaps",
+        "description": "Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the",
+        "quantity": 12000,
+        "minimumOrder": 1000,
+        "price": 20,
+        "img": ""
+    },
+    {
+        "_id": 3,
+        "name": "Aluminum Barebone",
+        "description": "Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the",
+        "quantity": 12000,
+        "minimumOrder": 1000,
+        "price": 20,
+        "img": ""
+    }
+]

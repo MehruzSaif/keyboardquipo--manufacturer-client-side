@@ -23,6 +23,12 @@ const BusinessSummary = () => {
                     <div className="stat-desc">↘︎ 90 (14%)</div>
                 </div>
 
+                <div className="stat">
+                    <div className="stat-title">We Served</div>
+                    <div className="stat-value">100+ Customers</div>
+                    <div className="stat-desc">↘︎ 90 (14%)</div>
+                </div>
+
             </div>
         </div>
     );

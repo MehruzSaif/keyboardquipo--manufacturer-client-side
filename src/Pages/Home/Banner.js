@@ -12,10 +12,10 @@ const Banner = () => {
             }}        
         >
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <img src={keyboard} className="animated" alt=''/>
+                <img src={keyboard} className="max-w animated" alt=''/>
                 <div>
                     <h1 className="text-5xl font-bold">Your Next QWERTY</h1>
-                    <p className="py-6">For mechanical keyboards lovers, by mechanical keyboards lovers. Customize your keyboard to create your perfect aesthetic with an exciting suite of accessories in bold new colorways, including swappable top frames, rotary knobs, keycap sets, and coiled cables!</p>
+                    <p className="py-6 font-bold">For mechanical keyboards lovers, by mechanical keyboards lovers. Customize your keyboard to create your perfect aesthetic with an exciting suite of accessories in bold new colorways, including swappable top frames, rotary knobs, keycap sets, and coiled cables!</p>
 
                     <PrimaryButton>GET STARTED</PrimaryButton>
                 </div>
