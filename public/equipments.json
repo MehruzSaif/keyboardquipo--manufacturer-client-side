@@ -6,7 +6,7 @@
         "quantity": 12000,
         "minimumOrder": 1000,
         "price": 20,
-        "img": ""
+        "img": "https://cdn.shopify.com/s/files/1/0549/2681/t/164/assets/holypanda11_1512x.png?v=143644874115281442621607709648"
     },
     {
         "_id": 2,
@@ -15,7 +15,7 @@
         "quantity": 12000,
         "minimumOrder": 1000,
         "price": 20,
-        "img": ""
+        "img": "https://cdn.shopify.com/s/files/1/0549/2681/t/164/assets/gpbt_keycaps_iso_english_us_nebula.png"
     },
     {
         "_id": 3,
@@ -24,6 +24,6 @@
         "quantity": 12000,
         "minimumOrder": 1000,
         "price": 20,
-        "img": ""
+        "img": "https://cdn.shopify.com/s/files/1/0549/2681/products/White_top_new_ns_1000x_5b675156-5247-436a-b616-4e05fec82495_1000x.png?v=1625084437"
     }
 ]

@@ -1,31 +1,17 @@
-import React from 'react';
-import switches from '../../assets/switches.jpg';
-import keycaps from '../../assets/keycaps.jpg';
-import barebone from '../../assets/barebone.jpg';
+import React, { useEffect, useState } from 'react';
 import Part from './Part';
 
 const Parts = () => {
 
-    const parts = [
-        {
-            _id: 1,
-            name: 'Mechanical Switches',
-            description: '',
-            img: switches
-        },
-        {
-            _id: 2,
-            name: 'PBT Keycaps',
-            description: '',
-            img: keycaps,
-        },
-        {
-            _id: 3,
-            name: 'Aluminum Barebone',
-            description: '',
-            img: barebone,
-        },
-    ]
+    const [parts, setParts] = useState([]);
+
+    useEffect(() => {
+        fetch('equipments.json')
+        .then(res => res.json())
+        .then(data => setParts(data))
+    }, [])
+
+    
     
     return (
         <div className='my-20 max-w-7xl mx-auto px-12'>
