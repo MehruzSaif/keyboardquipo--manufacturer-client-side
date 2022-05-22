@@ -6,7 +6,7 @@ import './Banner.css';
 
 const Banner = () => {
     return (
-        <div className="hero min-h-screen"
+        <div className="hero"
             style={{
                 background: `url(${bg1})`
             }}        
