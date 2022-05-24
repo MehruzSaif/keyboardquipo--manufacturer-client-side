@@ -19,7 +19,7 @@ const Navbar = () => {
         {
             user && <li><Link to="/dashboard">Dashboard</Link></li>
         }
-        <li>{user ? <button className="btn btn-ghost" onClick={logout}>Sign Out</button> : <Link to='/login'>Login</Link>}</li>
+        <li>{user ? <button className="btn btn-ghost" onClick={logout} ><h1>{user.displayName}</h1> Sign Out</button> : <Link to='/login'>Login</Link>}</li>
     </>
     return (
         <div className='lg:max-w-7xl lg:mx-auto'>
