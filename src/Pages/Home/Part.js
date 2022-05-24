@@ -25,6 +25,7 @@ const Part = ({ part }) => {
 
                     <button onClick={() => navigateToPurchase(_id)} className="btn btn-primary text-white">Order Now</button>
 
+
                 </div>
             </div>
         </div>
