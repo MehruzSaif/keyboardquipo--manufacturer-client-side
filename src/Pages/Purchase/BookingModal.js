@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const BookingModal = ({setConfirmOrder }) => {
@@ -39,8 +40,15 @@ const BookingModal = ({setConfirmOrder }) => {
         })
             .then(res => res.json())
             .then(data => {
+
+                if(data.success) {
+                    toast("Order didn't Placed");
+                }
+                else {
+                    toast(`${name}, order placed`);
+                }
+
                 // to close the modal
-                console.log(data);
                 setConfirmOrder(null);
             })
     }
