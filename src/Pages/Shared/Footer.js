@@ -38,8 +38,8 @@ const Footer = () => {
             <footer className="footer px-10 py-4 border-t text-base-content font-semibold">
                 <div className="items-center grid-flow-col">
 
-                    <p>Doctors portal <br />
-                        Providing reliable treatment since 1992</p>
+                    <p>Keyboardquipo<br />
+                        Providing reliable treatment since 2021</p>
                 </div>
                 <div className="md:place-self-center md:justify-self-end">
                     <div className="grid grid-flow-col gap-4">

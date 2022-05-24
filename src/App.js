@@ -14,11 +14,11 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="purchase" element={
+        <Route path='/purchase/:partId' element={
           <RequireAuth>
-            <Purchase />
+            <Purchase></Purchase>
           </RequireAuth>
-        } />
+        }></Route>
         <Route path="about" element={<About />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />

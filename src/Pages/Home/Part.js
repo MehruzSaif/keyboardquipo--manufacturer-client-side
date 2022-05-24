@@ -1,13 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Part = ({part}) => {
+const Part = ({ part }) => {
 
-    const {_id, name, img, price, quantity, orderQuantity, description} = part;
+    const { _id, name, img, price, availableQuantity, minimumOrder, description } = part;
 
     const navigate = useNavigate();
-    const navigateToSPurchase = id => {
-        navigate(`/part/${id}`);
+    const navigateToPurchase = id => {
+        navigate(`/purchase/${id}`);
     }
 
     return (
@@ -18,11 +18,13 @@ const Part = ({part}) => {
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{name}</h2>
                 <p>{description}</p>
-                <p><b>Quantity: {quantity}</b></p>
-                <p><b>Minimum Order: {orderQuantity}</b></p>
+                <p><b>Available Quantity: {availableQuantity}</b></p>
+                <p><b>Minimum Order: {minimumOrder}</b></p>
                 <p><b>Price: {price}</b></p>
                 <div className="card-actions">
-                    <button onClick={() => navigateToSPurchase(_id)} className="btn btn-primary text-white">Order Now</button>
+
+                    <button onClick={() => navigateToPurchase(_id)} className="btn btn-primary text-white">Order Now</button>
+
                 </div>
             </div>
         </div>

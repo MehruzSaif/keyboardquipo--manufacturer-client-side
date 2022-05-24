@@ -3,8 +3,9 @@
         "_id": 1,
         "name": "Mechanical Switches",
         "description": "Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the",
-        "quantity": 12000,
+        "availableQuantity": 12000,
         "minimumOrder": 1000,
+        "placedOrder": 1000,
         "price": 20,
         "img": "https://cdn.shopify.com/s/files/1/0549/2681/t/164/assets/holypanda11_1512x.png?v=143644874115281442621607709648"
     },
@@ -12,8 +13,9 @@
         "_id": 2,
         "name": "PBT Keycaps",
         "description": "Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the",
-        "quantity": 12000,
-        "minimumOrder": 1000,
+        "availableQuantity": 5000,
+        "minimumOrder": 100,
+        "placedOrder": 100,
         "price": 20,
         "img": "https://cdn.shopify.com/s/files/1/0549/2681/t/164/assets/gpbt_keycaps_iso_english_us_nebula.png"
     },
@@ -21,8 +23,9 @@
         "_id": 3,
         "name": "Aluminum Barebone",
         "description": "Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the",
-        "quantity": 12000,
-        "minimumOrder": 1000,
+        "availableQuantity": 600,
+        "minimumOrder": 50,
+        "placedOrder": 50,
         "price": 20,
         "img": "https://cdn.shopify.com/s/files/1/0549/2681/products/White_top_new_ns_1000x_5b675156-5247-436a-b616-4e05fec82495_1000x.png?v=1625084437"
     }
