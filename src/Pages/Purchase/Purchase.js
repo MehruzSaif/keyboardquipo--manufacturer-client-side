@@ -214,7 +214,7 @@ const Purchase = () => {
 
 
 
-                <label onClick={(setConfirmOrder)} htmlFor="booking-modal" className="btn mx-40 mb-3">Purchase</label>
+                <label onClick={(setConfirmOrder)} htmlFor="booking-modal" className="btn mb-3">Place Order</label>
             </div>
 
             <Footer></Footer>

@@ -42,10 +42,10 @@ const BookingModal = ({setConfirmOrder }) => {
             .then(data => {
 
                 if(data.success) {
-                    toast("Order didn't Placed");
+                    toast.error("Order didn't Placed");
                 }
                 else {
-                    toast(`${name}, order placed`);
+                    toast.success(`${name}, order placed`);
                 }
 
                 // to close the modal
