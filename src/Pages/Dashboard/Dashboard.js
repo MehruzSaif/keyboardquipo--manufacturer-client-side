@@ -14,7 +14,7 @@ const Dashboard = () => {
             <div className="drawer-content">
                 <h2 className='text-3xl font-bold mt-5 ml-3 text-purple-500'>Your Dashboard</h2>
                 <Outlet></Outlet>
-                
+
 
             </div>
             <div className="drawer-side">
@@ -24,7 +24,10 @@ const Dashboard = () => {
                     <li><Link to="/dashboard">My Orders</Link></li>
                     <li><Link to="/dashboard/review">My Reviews</Link></li>
                     <li><Link to="/dashboard/profile">My Profile</Link></li>
-                    {admin && <li><Link to="/dashboard/users">All Users</Link></li>}
+                    {admin && <>
+                        <li><Link to="/dashboard/users">All Users</Link></li>
+                        <li><Link to="/dashboard/addPart">Add a Equipment </Link></li>
+                    </>}
                 </ul>
 
             </div>
