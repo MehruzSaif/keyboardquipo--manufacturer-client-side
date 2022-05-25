@@ -8,45 +8,6 @@ const AddPart = () => {
 
     const imageStorageKey = 'ff80d7d39744e8bbef0749f30f2f77f9';
 
-    /* const onSubmit = async data => {
-        const image = data.image[0];
-        const formData = new FormData();
-        formData.append('image', image);
-        const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`
-        fetch(url, {
-            method: 'POST',
-            body: formData
-        })
-            .then(res => res.json())
-            .then(result => {
-
-                if (result.success) {
-                    const img = result.data.url;
-                    const equipment = {
-                        name: data.name,
-                        description: data.description,
-                        availableQuantity: data.availableQuantity,
-                        minimumOrder: data.minimumOrder,
-                        price: data.price,
-                        img: img
-                    }
-                }
-                // send to my database
-                fetch('http://localhost:5000/equipment', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json',
-                        authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                    },
-                    body: JSON.stringify(equipment)
-                })
-                    .then(res => res.json())
-                    .then(inserted => {
-                        console.log(inserted);
-                    })
-            })
-    } */
-
 
     const onSubmit = async data => {
         const image = data.image[0];
@@ -152,7 +113,7 @@ const AddPart = () => {
 
                                 <input
                                     type="text"
-                                    placeholder="availableQuantity"
+                                    placeholder="Available Quantity"
                                     className="input input-bordered w-full max-w-xs"
                                     {...register("availableQuantity", {
                                         required: {
@@ -172,7 +133,7 @@ const AddPart = () => {
 
                                 <input
                                     type="text"
-                                    placeholder="minimumOrder"
+                                    placeholder="Minimum Order"
                                     className="input input-bordered w-full max-w-xs"
                                     {...register("minimumOrder", {
                                         required: {
