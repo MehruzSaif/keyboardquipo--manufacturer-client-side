@@ -1,13 +1,23 @@
 import React from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { async } from '@firebase/util';
 
 const CheckoutForm = () => {
 
     const stripe = useStripe();
-    const element = useElements()
+    const elements = useElements()
 
-    const handleSubmit = event => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
+        if (!stripe || !elements) {
+            return
+        }
+
+        const card = elements.getElement(CardElement);
+
+        if(card === null) {
+            return;
+        }
     }
 
     return (
