@@ -219,7 +219,7 @@ const Purchase = () => {
 
             <Footer></Footer>
             {confirmOrder && <BookingModal
-            setConfirmOrder={setConfirmOrder}
+                setConfirmOrder={setConfirmOrder}
             ></BookingModal>}
         </div>
 

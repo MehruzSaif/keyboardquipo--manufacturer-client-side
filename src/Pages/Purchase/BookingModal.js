@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
-const BookingModal = ({setConfirmOrder }) => {
+const BookingModal = ({ setConfirmOrder }) => {
 
     const [user, loading, error] = useAuthState(auth);
 
@@ -41,7 +41,7 @@ const BookingModal = ({setConfirmOrder }) => {
             .then(res => res.json())
             .then(data => {
 
-                if(data.success) {
+                if (data.success) {
                     toast.error("Order didn't Placed");
                 }
                 else {
@@ -60,6 +60,10 @@ const BookingModal = ({setConfirmOrder }) => {
             <input type="checkbox" id="booking-modal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
+
+                    <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2 text-white">✕</label>
+
+
                     <h3 className="font-bold text-lg text-center">Confirm Order</h3>
 
                     <form onSubmit={handleBooking} className='mt-5 grid grid-cols-1 gap-3 justify-items-center'>
