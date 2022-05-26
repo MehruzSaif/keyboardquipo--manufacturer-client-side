@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
+import DeleteConfirmModal from './DeleteConfirmModal';
 import PartRow from './PartRow';
+
+
 const ManageParts = () => {
+
+    const [deletingEquipment, setDeletingEquipment] = useState(null);
 
     const { data: equipments, isLoading, refetch } = useQuery('equipments', () => fetch('http://localhost:5000/part', {
         headers: {
@@ -38,11 +43,19 @@ const ManageParts = () => {
                                 equipment={equipment}
                                 index={index}
                                 refetch={refetch}
+                                setDeletingEquipment={setDeletingEquipment}
                             ></PartRow>)
                         }
                     </tbody>
                 </table>
             </div>
+
+            {deletingEquipment && <DeleteConfirmModal
+                deletingEquipment={deletingEquipment}
+                refetch={refetch}
+                setDeletingEquipment={setDeletingEquipment}
+            ></DeleteConfirmModal>}
+
         </div>
     );
 };
