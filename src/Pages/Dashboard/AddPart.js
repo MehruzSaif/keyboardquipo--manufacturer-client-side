@@ -32,7 +32,7 @@ const AddPart = () => {
                         img: img
                     }
                     // send to your data base
-                    fetch('http://localhost:5000/equipment', {
+                    fetch('http://localhost:5000/part', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
