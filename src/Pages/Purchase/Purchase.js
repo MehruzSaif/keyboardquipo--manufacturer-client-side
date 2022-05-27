@@ -109,6 +109,7 @@ export default Purchase; */
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Footer from '../Shared/Footer';
 import BookingModal from './BookingModal';
 
@@ -148,6 +149,9 @@ const Purchase = () => {
         if(increaseQuantity <= part.availableQuantity) {
             setOrderQuantity(increaseQuantity);
         }
+        else {
+            toast.error(`Cannot added more than ${availableQuantity}`);
+        }
     }
 
     const handleDecreaseQuantity = () => {
@@ -155,6 +159,8 @@ const Purchase = () => {
         let DecreaseQuantity = parseInt(orderQuantity) - 1;
         if(DecreaseQuantity >= part.minimumOrder) {
             setOrderQuantity(DecreaseQuantity);
+        }else {
+            toast.error(`Quantity should be more than or equal ${minimumOrder}`);
         }
     }
 

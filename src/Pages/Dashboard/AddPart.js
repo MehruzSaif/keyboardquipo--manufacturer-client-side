@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
@@ -93,7 +92,7 @@ const AddPart = () => {
                             <div className="form-control w-full max-w-xs">
 
                                 <input
-                                    type="number"
+                                    type="text"
                                     placeholder="Description"
                                     className="input input-bordered w-full max-w-xs"
                                     {...register("description", {
@@ -104,7 +103,7 @@ const AddPart = () => {
                                     })}
                                 />
                                 <label className="label">
-                                    {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                                    {errors.description?.type === 'required' && <span className="label-text-alt text-red-500">{errors.description.message}</span>}
                                 </label>
                             </div>
 
@@ -124,7 +123,7 @@ const AddPart = () => {
                                     })}
                                 />
                                 <label className="label">
-                                    {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                                    {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.availableQuantity.message}</span>}
                                 </label>
                             </div>
 
@@ -144,7 +143,7 @@ const AddPart = () => {
                                     })}
                                 />
                                 <label className="label">
-                                    {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                                    {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.minimumOrder.message}</span>}
                                 </label>
                             </div>
 
@@ -164,7 +163,7 @@ const AddPart = () => {
                                     })}
                                 />
                                 <label className="label">
-                                    {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                                    {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.price.message}</span>}
                                 </label>
                             </div>
 
@@ -186,7 +185,7 @@ const AddPart = () => {
                                 />
 
                                 <label className="label">
-                                    {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                                    {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.image.message}</span>}
                                 </label>
 
                             </div>
