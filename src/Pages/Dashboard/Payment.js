@@ -30,17 +30,17 @@ const Payment = () => {
             <div class="card w-50 max-w-md bg-base-100 shadow-xl my-12">
                 <div class="card-body">
                     <p className='text-success font-bold'>Hello, {order.buyerName}</p>
-                    <h2 class="card-title">Please Pay for: {order.partName}</h2>
-                    <p>Your Ordered invoice no: {order.partId}</p>
-                    <p>Your Ordered quantity: {order.partOrder}</p>
-                    <p>Please pay: ${order.partPrice}</p>
+                    <h2 class="card-title">Please Pay for: {order.name}</h2>
+                    <p>Your Ordered invoice no: {order._id}</p>
+                    <p>Your Ordered quantity: {order.quantity}</p>
+                    <p>Please pay: ${order.price}</p>
                 </div>
             </div>
             <div class="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
                 <div class="card-body">
 
                     <Elements stripe={stripePromise}>
-                        <CheckoutForm />
+                        <CheckoutForm order={order} />
                     </Elements>
 
 

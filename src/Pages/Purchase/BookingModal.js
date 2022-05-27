@@ -4,29 +4,37 @@ import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
-const BookingModal = ({ setConfirmOrder }) => {
+const BookingModal = (props) => {
+    
+
+    const {name} = props.part;
+    const {quantity} = props;
+    const {price} = props;
+    const {setConfirmOrder} = props;
+    
 
     const [user, loading, error] = useAuthState(auth);
 
-    const { partId } = useParams();
-    const [part, setPart] = useState({});
-    const { _id, name, price, placedOrder } = part;
+    // const { partId } = useParams();
+    /* const [part, setPart] = useState({});
+    const { _id, name, price } = part;
 
     useEffect(() => {
         const url = `http://localhost:5000/part/${partId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setPart(data))
-    }, [partId])
+    }, [partId]) */
 
     const handleBooking = event => {
         event.preventDefault();
 
         const booking = {
-            partId: _id,
+            
             partName: name,
-            partPrice: price,
-            partOrder: placedOrder,
+            price: price,
+            quantity: quantity,
+            
             buyer: user.email,
             buyerName: user.displayName
         }

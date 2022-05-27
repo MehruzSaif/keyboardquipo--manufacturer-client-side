@@ -57,12 +57,15 @@ const MyOrders = () => {
                             orders.map((order, index) => <tr>
                                 <th>{index + 1}</th>
                                 <td>{order.buyerName}</td>
-                                <td>{order.partName}</td>
-                                <td>{order.partOrder}</td>
-                                <td>{order.partPrice}</td>
-                                <td>
+                                <td>{order.name}</td>
+                                <td>{order.quantity}</td>
+                                <td>{order.price}</td>
+                                {/* <td>
                                     {(order.partPrice && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}
                                     {(order.partPrice && order.paid) && <span className='text-success'>Paid</span>}
+                                </td> */}
+                                <td>
+                                    {order.paid ? <span className='text-success'>Paid</span> : <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}
                                 </td>
                             </tr>)
                         }

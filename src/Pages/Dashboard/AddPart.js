@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
@@ -7,6 +7,7 @@ const AddPart = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     const imageStorageKey = 'ff80d7d39744e8bbef0749f30f2f77f9';
+
 
 
     const onSubmit = async data => {
@@ -92,7 +93,7 @@ const AddPart = () => {
                             <div className="form-control w-full max-w-xs">
 
                                 <input
-                                    type="text"
+                                    type="number"
                                     placeholder="Description"
                                     className="input input-bordered w-full max-w-xs"
                                     {...register("description", {
@@ -112,7 +113,7 @@ const AddPart = () => {
                             <div className="form-control w-full max-w-xs">
 
                                 <input
-                                    type="text"
+                                    type="number"
                                     placeholder="Available Quantity"
                                     className="input input-bordered w-full max-w-xs"
                                     {...register("availableQuantity", {
@@ -132,7 +133,7 @@ const AddPart = () => {
                             <div className="form-control w-full max-w-xs">
 
                                 <input
-                                    type="text"
+                                    type="number"
                                     placeholder="Minimum Order"
                                     className="input input-bordered w-full max-w-xs"
                                     {...register("minimumOrder", {
@@ -152,7 +153,7 @@ const AddPart = () => {
                             <div className="form-control w-full max-w-xs">
 
                                 <input
-                                    type="text"
+                                    type="number"
                                     placeholder="Price Per Quantity"
                                     className="input input-bordered w-full max-w-xs"
                                     {...register("price", {

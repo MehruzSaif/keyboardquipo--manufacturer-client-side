@@ -109,14 +109,21 @@ export default Purchase; */
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import Footer from '../Shared/Footer';
 import BookingModal from './BookingModal';
 
 const Purchase = () => {
     const { partId } = useParams();
     const [part, setPart] = useState({});
-    const { name, img, price, availableQuantity, minimumOrder, placedOrder, description } = part;
+    const { name, img, price, availableQuantity, minimumOrder, description } = part;
+
+    // const cost = price.parseInt();
+    // const availQty = availableQuantity.parseInt();
+    // const minOrder = minimumOrder.parseInt();
+
+    console.log("hellooooo ",typeof price, typeof availableQuantity, typeof minimumOrder);
+
+    const [orderQuantity, setOrderQuantity] = useState(0);
 
     const [confirmOrder, setConfirmOrder] = useState(null);
 
@@ -127,65 +134,31 @@ const Purchase = () => {
             .then(data => setPart(data))
     }, [partId])
 
+
+    useEffect(() => {
+        const url = `http://localhost:5000/part/${partId}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setOrderQuantity(data.minimumOrder))
+    }, [partId])
+
     const handleIncreaseQuantity = () => {
-        let { name, _id, img, price, availableQuantity, minimumOrder, placedOrder, description } = part;
-
-        if (placedOrder !== 0) {
-            placedOrder = placedOrder + 1;
-            const purchase = { name, _id, img, price, availableQuantity, minimumOrder, placedOrder, description };
-
-            const url = `http://localhost:5000/part/${partId}`;
-            fetch(url, {
-                method: 'PUT',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(purchase)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    toast.success('success', data);
-                })
-
-            fetch(url)
-                .then(res => res.json())
-                .then(data => {
-                    setPart(data)
-                    setPart(purchase);
-
-                })
+        
+        let increaseQuantity = parseInt(orderQuantity) + 1;
+        if(increaseQuantity <= part.availableQuantity) {
+            setOrderQuantity(increaseQuantity);
         }
     }
 
     const handleDecreaseQuantity = () => {
-        let { name, _id, img, price, availableQuantity, minimumOrder, placedOrder, description } = part;
-
-        if (placedOrder !== 0) {
-            placedOrder = placedOrder - 1;
-            const purchase = { name, _id, img, price, availableQuantity, minimumOrder, placedOrder, description };
-
-            const url = `http://localhost:5000/part/${partId}`;
-            fetch(url, {
-                method: 'PUT',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(purchase)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    toast.success('success', data);
-                })
-
-            fetch(url)
-                .then(res => res.json())
-                .then(data => {
-                    setPart(data)
-                    setPart(purchase);
-
-                })
+        
+        let DecreaseQuantity = parseInt(orderQuantity) - 1;
+        if(DecreaseQuantity >= part.minimumOrder) {
+            setOrderQuantity(DecreaseQuantity);
         }
     }
+
+        
 
     return (
         <div>
@@ -197,10 +170,10 @@ const Purchase = () => {
                 <div className="card-body items-center text-center">
                     <h2 className="card-title">{name}</h2>
                     <p>{description}</p>
-                    <p><b>Quantity: {availableQuantity}</b></p>
+                    <p><b>Available Quantity: {availableQuantity}</b></p>
                     <p><b>Minimum Order: {minimumOrder}</b></p>
-                    <p><b>Placed Order: {placedOrder}</b></p>
-                    <p><b>Price: {price}</b></p>
+                    <p><b>Quantity Ordered: {orderQuantity}</b></p>
+                    <p><b>Total Price: ${price * orderQuantity}</b></p>
                     <div className="card-actions">
 
                         <div className="btn-group mt-4">
@@ -219,7 +192,12 @@ const Purchase = () => {
 
             <Footer></Footer>
             {confirmOrder && <BookingModal
+
                 setConfirmOrder={setConfirmOrder}
+                part={part}
+                price={price * orderQuantity}
+                quantity={orderQuantity}
+                
             ></BookingModal>}
         </div>
 
