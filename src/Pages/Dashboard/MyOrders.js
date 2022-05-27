@@ -54,7 +54,7 @@ const MyOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            orders.map((order, index) => <tr>
+                            orders.map((order, index) => <tr key={order._id}>
                                 <th>{index + 1}</th>
                                 <td>{order.buyerName}</td>
                                 <td>{order.name}</td>
@@ -65,7 +65,11 @@ const MyOrders = () => {
                                     {(order.partPrice && order.paid) && <span className='text-success'>Paid</span>}
                                 </td> */}
                                 <td>
-                                    {order.paid ? <span className='text-success'>Paid</span> : <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}
+                                    {order.paid ? <div>
+                                        <p><span className='text-success'>Paid</span></p>
+                                        <p>Transaction id: <span className='text-orange-400'>{order.transactionId}</span></p>
+                                    </div>
+                                        : <Link to={`/dashboard/payment/${order._id}`}> <button className='btn btn-xs btn-success'>Pay</button></Link>}
                                 </td>
                             </tr>)
                         }

@@ -118,7 +118,7 @@ const CheckoutForm = ({ order }) => {
                         },
                     }}
                 />
-                <button type="submit" className='btn btn-success btn-sm mt-4' disabled={!stripe || !clientSecret}>
+                <button type="submit" className='btn btn-success btn-sm mt-4' disabled={!stripe || !clientSecret || success}>
                     Pay
                 </button>
             </form>
