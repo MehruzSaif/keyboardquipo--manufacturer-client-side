@@ -171,7 +171,7 @@ const AddPart = () => {
                             {/* image */}
                             <div className="form-control w-full max-w-xs">
                                 <label className="label">
-                                    <span className="label-text">Image</span>
+                                    <span className="label-text">Equipments' image</span>
                                 </label>
 
                                 <input type="file"
@@ -185,7 +185,7 @@ const AddPart = () => {
                                 />
 
                                 <label className="label">
-                                    {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.image.message}</span>}
+                                    {errors.image?.type === 'required' && <span className="label-text-alt text-red-500">{errors.image.message}</span>}
                                 </label>
 
                             </div>

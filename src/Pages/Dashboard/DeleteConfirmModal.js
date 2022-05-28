@@ -35,7 +35,7 @@ const DeleteConfirmModal = ({ deletingEquipment, refetch, setDeletingEquipment }
                     <p class="py-4 text-yellow-500">If you delete it, it will be delete from Database also!</p>
                     <div class="modal-action">
 
-                        <button onClick={() => handleDelete(_id)} className="btn btn-error text-white">Delete</button>
+                        <button onClick={() => handleDelete(_id)} className="btn btn-error text-white">Confirm</button>
 
                         <label for="delete-confirm-modal" className="btn btn-success
                         ">Cancel</label>

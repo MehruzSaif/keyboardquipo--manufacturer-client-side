@@ -1,19 +1,16 @@
-import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const BookingModal = (props) => {
-    
 
     const {name} = props.part;
-    const {quantity} = props;
-    const {price} = props;
-    const {setConfirmOrder} = props;
+    const {quantity, price, setConfirmOrder} = props;
+    // const {price} = props;
+    // const {setConfirmOrder} = props;
     
 
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
 
     // const { partId } = useParams();
     /* const [part, setPart] = useState({});
