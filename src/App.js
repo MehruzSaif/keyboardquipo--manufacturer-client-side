@@ -22,6 +22,7 @@ import NotFound from './Pages/Shared/NotFound';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
 import useAdmin from './Pages/Hook/useAdmin';
+import Blogs from './Pages/Home/Blogs';
 
 function App() {
 
@@ -55,6 +56,7 @@ function App() {
 
         </Route>
 
+        <Route path="blogs" element={<Blogs />} />
         <Route path="about" element={<About />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />

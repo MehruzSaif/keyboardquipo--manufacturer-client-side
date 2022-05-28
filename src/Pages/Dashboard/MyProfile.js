@@ -2,11 +2,11 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-const MyProfile = ({profile}) => {
+const MyProfile = () => {
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
-    const {img} = profile;
+    // const {img, } = profile;
 
 
     const imageStorageKey = 'ff80d7d39744e8bbef0749f30f2f77f9';
@@ -60,7 +60,7 @@ const MyProfile = ({profile}) => {
         <div>
             <h2 className='ml-3 mt-2 my-5'>Add Your Profile Information</h2>
 
-            <div className='my-20 max-w-7xl mx-auto px-12 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14'>
+            <div className='my-20 max-w-7xl mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-14'>
                 <div className='card w-96 bg-base-100 shadow-xl'>
                     <div className='card-body'>
                         <h2 className='card-title justify-center font-bold'>Add Equipments' Information Here</h2>
@@ -197,7 +197,7 @@ const MyProfile = ({profile}) => {
 
                 <div class="card w-96 bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
-                        <img src={img} alt="user" class="rounded-xl" />
+                        <img src='' alt="user" class="rounded-xl" />
                     </figure>
                     <div class="card-body items-center text-center">
                         <h2 class="card-title">Shoes!</h2>
