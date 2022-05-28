@@ -13,7 +13,7 @@ const MyOrders = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/booking?buyer=${user.email}`, {
+            fetch(`https://fathomless-gorge-87844.herokuapp.com/booking?buyer=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -76,7 +76,7 @@ const MyOrders = () => {
                                 </td>
 
                                 {/* <td>
-                                    <label for="cancel-order-modal" class="btn btn-xs btn-error">open modal</label>
+                                    <label for="cancel-order-modal" className="btn btn-xs btn-error">open modal</label>
                                     {(!order.paid) && <button className=''>Cancel Order</button>}
                                 </td> */}
                             </tr>)

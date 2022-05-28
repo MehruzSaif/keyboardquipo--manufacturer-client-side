@@ -32,7 +32,7 @@ const AddPart = () => {
                         img: img
                     }
                     // send to your data base
-                    fetch('http://localhost:5000/part', {
+                    fetch('https://fathomless-gorge-87844.herokuapp.com/part', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

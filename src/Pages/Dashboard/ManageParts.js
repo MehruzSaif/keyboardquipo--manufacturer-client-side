@@ -9,7 +9,7 @@ const ManageParts = () => {
 
     const [deletingEquipment, setDeletingEquipment] = useState(null);
 
-    const { data: equipments, isLoading, refetch } = useQuery('equipments', () => fetch('http://localhost:5000/part', {
+    const { data: equipments, isLoading, refetch } = useQuery('equipments', () => fetch('https://fathomless-gorge-87844.herokuapp.com/part', {
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
@@ -23,8 +23,8 @@ const ManageParts = () => {
         <div>
             <h2 className='ml-3 mt-2 my-5'>Manage Equipments: {equipments.length}</h2>
 
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
 
                     <thead>
                         <tr>

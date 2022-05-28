@@ -9,8 +9,8 @@ const PartRow = ({ equipment, index, refetch, setDeletingEquipment }) => {
     return (
         <tr>
             <th>{index + 1}</th>
-            <td><div class="avatar">
-                <div class="w-14 rounded-xl">
+            <td><div className="avatar">
+                <div className="w-14 rounded-xl">
                     <img src={img} alt={name} />
                 </div>
             </div></td>

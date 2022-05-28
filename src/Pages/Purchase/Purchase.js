@@ -10,7 +10,7 @@ const Purchase = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/part/${partId}`;
+        const url = `https://fathomless-gorge-87844.herokuapp.com/part/${partId}`;
 
         fetch(url)
             .then(res => res.json())
@@ -20,7 +20,7 @@ const Purchase = () => {
     const { name, img, price, availableQuantity, minimumOrder, placedOrder, description } = part;
 
     useEffect(() => {
-        const url = `http://localhost:5000/part/${partId}`;
+        const url = `https://fathomless-gorge-87844.herokuapp.com/part/${partId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setOrder(data.placedOrder))
@@ -62,7 +62,7 @@ const Purchase = () => {
         };
 
         await fetch(
-            `http://localhost:5000/part/${partId}`,
+            `https://fathomless-gorge-87844.herokuapp.com/part/${partId}`,
             requestOptions
         )
             .then((res) => res.json())
@@ -127,7 +127,7 @@ const Purchase = () => {
     const [confirmOrder, setConfirmOrder] = useState(null);
 
     useEffect(() => {
-        const url = `http://localhost:5000/part/${partId}`;
+        const url = `https://fathomless-gorge-87844.herokuapp.com/part/${partId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setPart(data))
@@ -135,7 +135,7 @@ const Purchase = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/part/${partId}`;
+        const url = `https://fathomless-gorge-87844.herokuapp.com/part/${partId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setOrderQuantity(data.minimumOrder))

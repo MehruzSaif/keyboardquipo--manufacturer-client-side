@@ -4,7 +4,7 @@ const usePurchase = partId => {
     const [part, setPart] = useState({});
 
     useEffect(() => {
-        const url = `http://localhost:5000/part/${partId}`
+        const url = `https://fathomless-gorge-87844.herokuapp.com/part/${partId}`
 
         fetch(url)
         .then(res => res.json())

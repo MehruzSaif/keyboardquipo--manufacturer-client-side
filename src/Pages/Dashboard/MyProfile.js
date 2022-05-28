@@ -35,7 +35,7 @@ const MyProfile = () => {
                         img: img
                     }
                     // send to your data base
-                    fetch('http://localhost:5000/profile', {
+                    fetch('https://fathomless-gorge-87844.herokuapp.com/profile', {
 
                         method: 'POST',
                         headers: {
@@ -50,7 +50,7 @@ const MyProfile = () => {
                                 toast.success('Profile information added successfully');
                                 reset();
 
-                                fetch(`http://localhost:5000/profile/${inserted.insertedId}`)
+                                fetch(`https://fathomless-gorge-87844.herokuapp.com/profile/${inserted.insertedId}`)
                                     .then(res => res.json())
                                     .then(data => setProfile(data))
 
@@ -247,19 +247,19 @@ const MyProfile = () => {
                 </div>
 
                 {/* show my info */}
-                <div class="card w-96 bg-base-100 shadow-xl">
-                    <figure class="px-10 pt-10">
-                        <img src={profile.img} alt="user" class="rounded-xl" />
+                <div className="card w-96 bg-base-100 shadow-xl">
+                    <figure className="px-10 pt-10">
+                        <img src={profile.img} alt="user" className="rounded-xl" />
                     </figure>
-                    <div class="card-body items-center text-center">
-                        <h2 class="card-title">{profile.name}</h2>
+                    <div className="card-body items-center text-center">
+                        <h2 className="card-title">{profile.name}</h2>
                         <p>{profile.email}</p>
                         <p>{profile.education}</p>
                         <p>Location: {profile.location}</p>
                         <p>City: {profile.city}</p>
                         <p>Phone No: {profile.phone}</p>
                         <p>Linkedin: {profile.linkedin}</p>
-                        <div class="card-actions">
+                        <div className="card-actions">
 
                         </div>
                     </div>

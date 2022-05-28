@@ -17,7 +17,7 @@ const BookingModal = (props) => {
     const { _id, name, price } = part;
 
     useEffect(() => {
-        const url = `http://localhost:5000/part/${partId}`;
+        const url = `https://fathomless-gorge-87844.herokuapp.com/part/${partId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setPart(data))
@@ -35,7 +35,7 @@ const BookingModal = (props) => {
             buyer: user.email,
         }
 
-        fetch('http://localhost:5000/booking', {
+        fetch('https://fathomless-gorge-87844.herokuapp.com/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
