@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
@@ -6,6 +6,7 @@ const MyProfile = () => {
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
+    const [profile, setProfile] = useState({});
     // const {img, } = profile;
 
 
@@ -35,6 +36,7 @@ const MyProfile = () => {
                     }
                     // send to your data base
                     fetch('http://localhost:5000/profile', {
+
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -47,6 +49,12 @@ const MyProfile = () => {
                             if (inserted.insertedId) {
                                 toast.success('Profile information added successfully');
                                 reset();
+
+                                fetch(`http://localhost:5000/profile/${inserted.insertedId}`)
+                                    .then(res => res.json())
+                                    .then(data => setProfile(data))
+
+
                             }
                             else {
                                 toast.error('Failed to add the profile information');
@@ -55,6 +63,8 @@ const MyProfile = () => {
                 }
             })
     }
+
+
 
     return (
         <div>
@@ -68,6 +78,47 @@ const MyProfile = () => {
                         <form onSubmit={handleSubmit(onSubmit)}>
 
 
+
+                            {/* Name */}
+                            <div className="form-control w-full max-w-xs">
+
+                                <input
+                                    type="name"
+                                    placeholder="Your Name"
+                                    className="input input-bordered w-full max-w-xs"
+                                    {...register("name", {
+                                        required: {
+                                            value: true,
+                                            message: 'Name is Required'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                                </label>
+                            </div>
+
+
+                            {/* email */}
+                            <div className="form-control w-full max-w-xs">
+
+                                <input
+                                    type="email"
+                                    placeholder="Your Mail"
+                                    className="input input-bordered w-full max-w-xs"
+                                    {...register("email", {
+                                        required: {
+                                            value: true,
+                                            message: 'Email is Required'
+                                        }
+                                    })}
+                                />
+                                <label className="label">
+                                    {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                </label>
+                            </div>
+
+
                             {/* Education */}
                             <div className="form-control w-full max-w-xs">
 
@@ -78,7 +129,7 @@ const MyProfile = () => {
                                     {...register("education", {
                                         required: {
                                             value: true,
-                                            message: 'Name is Required'
+                                            message: 'Education background is Required'
                                         }
                                     })}
                                 />
@@ -195,15 +246,21 @@ const MyProfile = () => {
                     </div>
                 </div>
 
+                {/* show my info */}
                 <div class="card w-96 bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
-                        <img src='' alt="user" class="rounded-xl" />
+                        <img src={profile.img} alt="user" class="rounded-xl" />
                     </figure>
                     <div class="card-body items-center text-center">
-                        <h2 class="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <h2 class="card-title">{profile.name}</h2>
+                        <p>{profile.email}</p>
+                        <p>{profile.education}</p>
+                        <p>Location: {profile.location}</p>
+                        <p>City: {profile.city}</p>
+                        <p>Phone No: {profile.phone}</p>
+                        <p>Linkedin: {profile.linkedin}</p>
                         <div class="card-actions">
-                            <button class="btn btn-primary">Buy Now</button>
+
                         </div>
                     </div>
                 </div>
