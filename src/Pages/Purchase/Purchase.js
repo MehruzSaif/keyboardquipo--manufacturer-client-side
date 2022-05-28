@@ -122,8 +122,6 @@ const Purchase = () => {
     // const availQty = availableQuantity.parseInt();
     // const minOrder = minimumOrder.parseInt();
 
-    console.log("hellooooo ",typeof price, typeof availableQuantity, typeof minimumOrder);
-
     const [orderQuantity, setOrderQuantity] = useState(0);
 
     const [confirmOrder, setConfirmOrder] = useState(null);

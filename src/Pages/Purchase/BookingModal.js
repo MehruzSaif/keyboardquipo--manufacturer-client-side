@@ -36,7 +36,6 @@ const BookingModal = (props) => {
             quantity: quantity,
             
             buyer: user.email,
-            buyerName: user.displayName
         }
 
         fetch('http://localhost:5000/booking', {

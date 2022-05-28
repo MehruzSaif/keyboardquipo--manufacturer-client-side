@@ -1,12 +1,12 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const DeleteConfirmModal = ({ deletingEquipment, refetch, setDeletingEquipment }) => {
+const CancelOrderModal = ({ cancelOrder, setCancelOrder, refetch, order }) => {
 
-    const { _id, name } = deletingEquipment;
+    const { _id, name } = setCancelOrder;
 
-    const handleDelete = id => {
-        fetch(`http://localhost:5000/part/${id}`, {
+    const handleCancelOrder = id => {
+        fetch(`http://localhost:5000/booking/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -19,7 +19,7 @@ const DeleteConfirmModal = ({ deletingEquipment, refetch, setDeletingEquipment }
                     toast.success(`${name} is deleted.`)
 
                     // to close the modal
-                    setDeletingEquipment(null)
+                    setCancelOrder(null)
                     refetch();
                 }
             })
@@ -32,13 +32,13 @@ const DeleteConfirmModal = ({ deletingEquipment, refetch, setDeletingEquipment }
                 <div class="modal-box">
                     <h3 class="font-bold text-lg text-red-500">Are you sure you want to delete {name}?</h3>
 
-                    <p class="py-4 text-yellow-500">If you delete it, it will be delete from Database also!</p>
+                    <p class="py-4 text-yellow-500">If you delete it, it will be delete forever.</p>
                     <div class="modal-action">
 
-                        <button onClick={() => handleDelete(_id)} className="btn btn-error text-white">Delete</button>
+                        <button onClick={() => handleCancelOrder(_id)} className="btn btn-error text-white">Delete</button>
 
-                        <label for="delete-confirm-modal" className="btn btn-success
-                        ">Cancel</label>
+                        <label for="cancel-order-modal" class="btn btn-xs btn-error">open modal</label>
+                        {(!order.paid) && <button className=''>Cancel Order</button>}
                     </div>
                 </div>
             </div>
@@ -46,4 +46,4 @@ const DeleteConfirmModal = ({ deletingEquipment, refetch, setDeletingEquipment }
     );
 };
 
-export default DeleteConfirmModal;
+export default CancelOrderModal;

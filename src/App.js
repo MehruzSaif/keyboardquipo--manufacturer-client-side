@@ -18,8 +18,16 @@ import RequireAdmin from './Pages/Login/RequireAdmin';
 import AddPart from './Pages/Dashboard/AddPart';
 import ManageParts from './Pages/Dashboard/ManageParts';
 import Payment from './Pages/Dashboard/Payment';
+import NotFound from './Pages/Shared/NotFound';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './firebase.init';
+import useAdmin from './Pages/Hook/useAdmin';
 
 function App() {
+
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
+
   return (
     <div>
       <Navbar></Navbar>
@@ -32,18 +40,25 @@ function App() {
         }></Route>
 
         <Route path='dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
-          <Route index element={<MyOrders></MyOrders>}></Route>
-          <Route path='review' element={<MyReview></MyReview>}></Route>
+
           <Route path='profile' element={<MyProfile></MyProfile>}></Route>
-          <Route path='payment/:id' element={<Payment></Payment>}></Route>
+
+          {!admin && <>
+            <Route path='orders' element={<MyOrders></MyOrders>}></Route>
+            <Route path='review' element={<MyReview></MyReview>}></Route>
+            <Route path='payment/:id' element={<Payment></Payment>}></Route>
+          </>}
+
           <Route path='users' element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
           <Route path='addPart' element={<RequireAdmin><AddPart></AddPart></RequireAdmin>}></Route>
           <Route path='managePart' element={<RequireAdmin><ManageParts></ManageParts></RequireAdmin>}></Route>
+
         </Route>
 
         <Route path="about" element={<About />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
+        <Route path="*" element={<NotFound></NotFound>} />
       </Routes>
       <ToastContainer />
     </div>

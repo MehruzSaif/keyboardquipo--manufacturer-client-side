@@ -6,6 +6,7 @@ import auth from '../../firebase.init';
 
 const MyOrders = () => {
 
+
     const [orders, setOrders] = useState([]);
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
@@ -30,6 +31,7 @@ const MyOrders = () => {
                 .then(data => {
 
                     setOrders(data)
+
                 });
         }
     }, [user])
@@ -45,19 +47,20 @@ const MyOrders = () => {
                     <thead>
                         <tr>
                             <th>Sl No.</th>
-                            <th>Buyer Name</th>
+                            <th>Buyer Email</th>
                             <th>Order Name</th>
                             <th>Quantity</th>
                             <th>Price</th>
                             <th>Payment</th>
                         </tr>
                     </thead>
+                    
                     <tbody>
                         {
                             orders.map((order, index) => <tr key={order._id}>
                                 <th>{index + 1}</th>
-                                <td>{order.buyerName}</td>
-                                <td>{order.name}</td>
+                                <td>{order.buyer}</td>
+                                <td>{order.partName}</td>
                                 <td>{order.quantity}</td>
                                 <td>{order.price}</td>
                                 {/* <td>
@@ -71,6 +74,11 @@ const MyOrders = () => {
                                     </div>
                                         : <Link to={`/dashboard/payment/${order._id}`}> <button className='btn btn-xs btn-success'>Pay</button></Link>}
                                 </td>
+
+                                {/* <td>
+                                    <label for="cancel-order-modal" class="btn btn-xs btn-error">open modal</label>
+                                    {(!order.paid) && <button className=''>Cancel Order</button>}
+                                </td> */}
                             </tr>)
                         }
 
