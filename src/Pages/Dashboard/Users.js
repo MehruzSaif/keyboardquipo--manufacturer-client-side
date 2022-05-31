@@ -23,7 +23,7 @@ const Users = () => {
 
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>Sl No.</th>
                             <th>Email</th>
                             <th>Make Admin</th>
                             <th>Remove User</th>
@@ -31,10 +31,11 @@ const Users = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map(user => <UserRow
+                            users.map((user, index) => <UserRow
                                 key={user._id}
                                 user={user}
                                 refetch={refetch}
+                                index={index}
                             ></UserRow>)
                         }
                     </tbody>
