@@ -16,7 +16,7 @@ This project was bootstrapped with [Keyboardquipo](https://keyboardquipo.web.app
 
 - Daisy UI
 - Tailwind.CSS
-- React.JS
+- React.js
 - React From Hook
-- Node.JS
+- Node.js
 - Express.JS
