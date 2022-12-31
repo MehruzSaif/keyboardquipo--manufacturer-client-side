@@ -19,4 +19,4 @@ This project was bootstrapped with [Keyboardquipo](https://keyboardquipo.web.app
 - React.js
 - React From Hook
 - Node.js
-- Express.JS
+- Express.js
